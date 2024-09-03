@@ -8,8 +8,8 @@ steps:
     key: test
     depends_on: build
 
-- wait
-
+  - wait
+  
   - label: ":rocket: Deploy"
     command: |
       echo "Launch the rocket"
