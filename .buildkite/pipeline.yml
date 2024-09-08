@@ -2,6 +2,7 @@ steps:
   - label: ":construction_worker: Build"
     command: echo "Build the rocket"
     key: build
+    parallelism: 5
 
   - label: ":white_check_mark: Test"
     command: echo "Test the rocket"

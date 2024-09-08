@@ -1,6 +1,7 @@
 steps:
   - label: ":ballot_box_with_ballot:"
     command: ./src/generate-and-store-number.sh
+    parallelism: 5
 
   - wait
 
