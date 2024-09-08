@@ -14,3 +14,8 @@ steps:
       cat .buildkite/annotation.md | buildkite-agent annotate --style "success"
     key: deploy
     depends_on: test
+
+  - label: ":rocket: Get metadata from another build"
+    command: |
+      echo "Get metadata from another build"
+      buildkite-agent meta-data get "foo" --build 0191d3de-fa96-4bde-90ab-5febf6f509b7
