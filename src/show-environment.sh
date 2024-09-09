@@ -1,27 +1,25 @@
 #!/bin/bash
 
-(
-    set -x
+function generate_number() {
+    MAX_NUMBER=${MAX_NUMBER:-9}
+    echo $(($RANDOM % $MAX_NUMBER + 1))
+}
 
-    env | sort
+parallel_index=${1:-}
 
-    uname -a
-)
+generated_number=$(generate_number)
 
-if [[ -x "$(command -v node)" ]]; then
+if [[ -n "$parallel_index" ]]; then
     (
         set -x
-        node --version
+        buildkite-agent meta-data set "generated-number::$parallel_index" "${generated_number}"
     )
 else
-    echo "WARN: NodeJS not installed"
-fi
-
-if [[ -x "$(command -v yarn)" ]]; then
     (
         set -x
-        yarn --version
+        buildkite-agent meta-data set "generated-number" "${generated_number}"
     )
-else
-    echo "WARN: Yarn not installed"
 fi
+
+echo
+echo
