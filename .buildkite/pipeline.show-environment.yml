@@ -5,6 +5,7 @@ steps:
       - docker#v3.5.0:
           image: "ubuntu:latest"
           propagate-environment: true
+          
   - label: ":ski: missing bash"
     command: ./src/show-environment.sh
     plugins:
