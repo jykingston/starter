@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Variables
+S3_BUCKET="jy-kingston-buildkite-onboard-managedsecretsbucket-tyoblc1ifpuc"
+S3_PATH="singing-keys"
+LOCAL_DESTINATION="/tmp/"
+CONFIG_FILE="/buildkite/buildkite-agent.cfg"
+KEY_ID="distinct-warthog"
+
+# Function to pull files from S3
+pull_files_from_s3() {
+    echo "Pulling files from S3 bucket: $S3_BUCKET"
+    aws s3 sync s3://$S3_BUCKET/$S3_PATH $LOCAL_DESTINATION
+}
+
+# Function to append file locations to the config file
+append_to_config() {
+    echo "Appending singing config to $CONFIG_FILE"
+    echo "signing-jwks-file=/tmp/private.json" >>$CONFIG_FILE
+    echo "signing-jwks-key-id=${KEY_ID}" >>$CONFIG_FILE
+    echo "verification-jwks-file=/tmp/public.json" >>$CONFIG_FILE
+}
+
+# Main script execution
+pull_files_from_s3
+append_to_config
+
+echo "Script execution completed."
