@@ -4,7 +4,7 @@ set -e
 
 : ${STEPS_COUNT:?please configure pipeline with \$STEPS_COUNT environment variable}
 
-cat /buildkite/buildkite-agent.cfg
+cat /etc/buildkite/buildkite-agent.cfg
 
 buildkite-agent meta-data set steps-count "$STEPS_COUNT"
 
