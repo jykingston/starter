@@ -19,6 +19,7 @@ append_to_config() {
     echo "signing-jwks-file=/tmp/private.json" >>$CONFIG_FILE
     echo "signing-jwks-key-id=${KEY_ID}" >>$CONFIG_FILE
     echo "verification-jwks-file=/tmp/public.json" >>$CONFIG_FILE
+    cat /buildkite/buildkite-agent.cfg
 }
 
 # Main script execution
@@ -26,3 +27,4 @@ pull_files_from_s3
 append_to_config
 
 echo "Script execution completed."
+exit 0
