@@ -6,10 +6,11 @@ steps:
           image: "ubuntu:latest"
           propagate-environment: true
           mount-buildkite-agent: true
-          
+
   - label: ":ski: missing bash"
     command: ./src/show-environment.sh
     plugins:
       - docker#v3.5.0:
           image: "alpine:latest"
           propagate-environment: true
+  - trigger: metadata-starter
