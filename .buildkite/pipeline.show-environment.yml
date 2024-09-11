@@ -2,6 +2,7 @@ steps:
   - label: ":ubuntu:"
     command: ./src/show-environment.sh
     concurrency: 2
+    concurrency_group: 'ubuntu/enviornment'
     plugins:
       - docker#v3.5.0:
           image: "ubuntu:latest"
