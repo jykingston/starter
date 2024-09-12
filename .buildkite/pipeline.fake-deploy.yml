@@ -1,23 +1,23 @@
 steps:
-- build:
-    branch: main
-    message: Deploy tidy-api (9775) to testing
-  label: Deploy to testing
+  - build:
+      branch: main
+      message: Deploy tidy-api (9775) to testing
+    label: Deploy to testing
 
-- build:
-    branch: main
-    message: Deploy tidy-api (9775) to staging
-  label: Deploy to staging
+  - build:
+      branch: main
+      message: Deploy tidy-api (9775) to staging
+    label: Deploy to staging
 
-- block: ":rocket: Release"
-  branches: main
+  - block: ":rocket: Release"
+    branches: main
 
-- build:
-    branch: main
-    message: Deploy tidy-api (9775) to production
-  label: Deploy to production
+  - build:
+      branch: main
+      message: Deploy tidy-api (9775) to production
+    label: Deploy to production
 
-- build:
-    branch: main
-    message: Deploy tidy-api (9775) to sandbox
-  label: Deploy to sandbox
+  - build:
+      branch: main
+      message: Deploy tidy-api (9775) to sandbox
+    label: Deploy to sandbox
