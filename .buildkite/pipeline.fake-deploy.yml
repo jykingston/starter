@@ -1,0 +1,47 @@
+steps:
+- build:
+    env:
+      REPO_TAG: tidy-api
+      REVISION: 9775
+      DEPLOY_ENVIRONMENT: testing
+    branch: main
+    message: Deploy tidy-api (9775) to testing
+  label: Deploy to testing
+  trigger: hands-deployment
+  branches: feature/*
+
+- build:
+    env:
+      REPO_TAG: tidy-api
+      REVISION: 9775
+      DEPLOY_ENVIRONMENT: staging
+    branch: main
+    message: Deploy tidy-api (9775) to staging
+  label: Deploy to staging
+  trigger: hands-deployment
+  branches: main release/* hotfix/*
+
+- block: ":rocket: Release"
+  branches: main
+
+- build:
+    env:
+      REPO_TAG: tidy-api
+      REVISION: 9775
+      DEPLOY_ENVIRONMENT: production
+    branch: main
+    message: Deploy tidy-api (9775) to production
+  label: Deploy to production
+  trigger: hands-deployment
+  branches: main
+
+- build:
+    env:
+      REPO_TAG: tidy-api
+      REVISION: 9775
+      DEPLOY_ENVIRONMENT: sandbox
+    branch: main
+    message: Deploy tidy-api (9775) to sandbox
+  label: Deploy to sandbox
+  trigger: hands-deployment
+  branches: main
