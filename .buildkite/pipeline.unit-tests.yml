@@ -10,15 +10,14 @@ steps:
 
   - wait
 
-  - command: echo "Running deployment to staging environment"
-    key: stage-deploy
-    depends_on: start-gate
-
-  - command: echo "Running e2e tests after the deployment"
+  - label: ":ubuntu:"
+    command: ./src/show-environment.sh
     parallelism: 3
-    depends_on: [stage-deploy]
-    key: e2e
-
+    plugins:
+      - docker#v3.5.0:
+          image: "ubuntu:latest"
+          propagate-environment: true
+          mount-buildkite-agent: true
   - wait
 
   - command: echo "End of concurrency gate <--"
