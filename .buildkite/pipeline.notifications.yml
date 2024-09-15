@@ -1,0 +1,14 @@
+steps:
+  - label: ":construction_worker: Build"
+    command: echo "Build the rocket"
+    key: build
+    parallelism: 5
+    depends_on: build
+
+  
+  - block: "Blocked"
+ 
+ - label: ":construction_worker: Unblocked"
+    command: echo "Woooot"
+    depends_on: build
+
