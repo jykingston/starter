@@ -3,16 +3,3 @@ env:
 steps:
   - label: ":desktop_computer:"
     command: ./src/test.sh
-
-  - label: ":ballot_box_with_ballot:"
-    command: ./src/generate-and-store-number.sh
-
-  - wait
-
-  - label: ":pipeline:"
-    command: ./src/generate-steps-from-stored-number.sh | buildkite-agent pipeline upload
-
-  - wait
-
-  - label: ":desktop_computer:"
-    command: ./src/fetch-and-display-number.sh collect
