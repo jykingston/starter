@@ -8,7 +8,7 @@ steps:
   
   - block: "Blocked"
  
- - label: ":construction_worker: Unblocked"
+  - label: ":construction_worker: Unblocked"
     command: echo "Woooot"
     depends_on: build
 
