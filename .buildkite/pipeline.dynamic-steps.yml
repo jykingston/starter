@@ -2,4 +2,4 @@ env:
    preferred_language: "Java"
 steps:
   - label: ":desktop_computer:"
-    command: ./src/buildkite-messasge.sh
+    command: ./src/buildkite-message.sh
