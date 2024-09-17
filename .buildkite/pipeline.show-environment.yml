@@ -1,5 +1,5 @@
 steps:
-  - label: ":ubuntu:"
+  - label: ":ubuntu: Ubuntu"
     command: ./src/show-environment.sh
     parallelism: 3
     plugins:
@@ -8,7 +8,7 @@ steps:
           propagate-environment: true
           mount-buildkite-agent: true
 
-  - label: ":ski: missing bash"
+  - label: "Alpine"
     command: ./src/show-environment.sh
     plugins:
       - docker#v3.5.0:
