@@ -8,7 +8,7 @@ steps:
           propagate-environment: true
           mount-buildkite-agent: true
 
-  - label: "Alpine"
+  - label: "Alpine!:"
     command: ./src/show-environment.sh
     plugins:
       - docker#v3.5.0:
