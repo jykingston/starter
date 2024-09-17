@@ -1,5 +1,5 @@
 steps:
-  - label: "Dynamic Steps"
+  - label: "Dynamic Steps Are Better"
     command: ./src/generate-steps-from-env-var.sh | buildkite-agent pipeline upload
 
   - wait
