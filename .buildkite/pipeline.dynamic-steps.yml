@@ -1,5 +1,0 @@
-env:
-   preferred_language: "Java"
-steps:
-  - label: ":desktop_computer:"
-    command: ./src/buildkite-message.sh
