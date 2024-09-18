@@ -1,7 +1,8 @@
 steps:
   - label: ":desktop_computer:"
     command: ./src/script.sh 
-    notify:
-      - github_commit_status:
-          context: "my-custom-status"
-          if: build.env("SEND_NOTIFICATION") == "true"
+
+notify:
+  - github_commit_status:
+      context: "my-custom-status"
+      if: build.env("SEND_NOTIFICATION") == "true"
