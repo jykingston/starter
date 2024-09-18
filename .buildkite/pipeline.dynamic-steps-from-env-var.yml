@@ -1,9 +1,9 @@
 steps:
-  - label: "Dynamic Steps Are Better!!!!!!"
-    command: ./src/generate-steps-from-env-var.sh | buildkite-agent pipeline upload
+  #  - label: "Dynamic Steps Are Better!!!!!!"
+  #  command: ./src/generate-steps-from-env-var.sh | buildkite-agent pipeline upload
 
-  - label: ":desktop_computer:"
-    command: ./src/fetch-and-display-number.sh collect
+  #- label: ":desktop_computer:"
+  #  command: ./src/fetch-and-display-number.sh collect
 
   - label: "Example Script"
     command: ./src/script.sh
