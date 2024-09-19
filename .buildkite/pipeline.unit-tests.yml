@@ -4,7 +4,9 @@ steps:
 
 
   - command: echo "Running tests in parellel"
-    parallelism: 5
+    concurrency_group: start
+    concurrency: 3
+    key: start
 
   - command: echo "--> Start of concurrency gate"
     concurrency_group: gate
