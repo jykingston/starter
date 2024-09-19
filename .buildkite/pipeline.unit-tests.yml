@@ -16,7 +16,7 @@ steps:
 
   - wait
 
-  - command: echo "Running deployment to staging environment"
+  - command: echo "Running deployment to staging environment" >> log.txt
     key: stage-deploy
     depends_on: start-gate
 
@@ -25,7 +25,7 @@ steps:
     depends_on: [stage-deploy]
     key: e2e
     artifact_paths: 
-      - "/etc/buildkite-agent/"
+      - "log.txt"
 
   - wait
 
