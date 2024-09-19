@@ -1,8 +1,4 @@
 steps:
-  - label: "surprise"
-    command: |
-      buildkite-agent annotate "<img class="emoji" title="one-does-not-simply" alt=":one-does-not-simply:" src="https://buildkiteassets.com/emojis/img-buildkite-64/one-does-not-simply.png" draggable="false" /> One does not simply annotate." --style "success"
-
   - command: echo "Running unit tests"
     key: unit-tests
 
@@ -14,14 +10,15 @@ steps:
 
   - wait
 
-  - label: ":ubuntu:"
-    command: ./src/show-environment.sh
+  - command: echo "Running deployment to staging environment"
+    key: stage-deploy
+    depends_on: start-gate
+
+  - command: echo "Running e2e tests after the deployment"
     parallelism: 3
-    plugins:
-      - docker#v3.5.0:
-          image: "ubuntu:latest"
-          propagate-environment: true
-          mount-buildkite-agent: true
+    depends_on: [stage-deploy]
+    key: e2e
+
   - wait
 
   - command: echo "End of concurrency gate <--"
