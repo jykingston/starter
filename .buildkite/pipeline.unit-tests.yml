@@ -24,6 +24,8 @@ steps:
     parallelism: 3
     depends_on: [stage-deploy]
     key: e2e
+    artifact_paths: 
+      - "logs/**/*"
 
   - wait
 
