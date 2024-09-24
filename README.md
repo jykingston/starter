@@ -1,7 +1,6 @@
 # Buildkite Starter Pipeline
 
-Updated with more dragons.
-:dragon: 🐉
+Updated with more dragons. 🐉
 
 [![Add to Buildkite](https://buildkite.com/button.svg)](https://buildkite.com/new)
 
