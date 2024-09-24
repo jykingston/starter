@@ -1,5 +1,7 @@
 # Buildkite Starter Pipeline
 
+Updated with more dragons. 🐉
+
 [![Add to Buildkite](https://buildkite.com/button.svg)](https://buildkite.com/new)
 
 This repository is an example [Buildkite](https://buildkite.com/) pipeline to help new users understand how pipelines work.
