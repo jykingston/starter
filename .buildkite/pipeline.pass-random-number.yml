@@ -9,4 +9,4 @@ steps:
     command: ./src/fetch-and-display-number.sh
 
   - label: "Annotate"
-    command: buildkite-agent annotate 'Example `default` style' --context 'ctx-default' --job 0192697a-1e00-4c3d-9b00-8e5c661716a4
+    command: buildkite-agent annotate 'Example `default` style' --context 'ctx-default' --job 0192697a-32da-4192-a448-4dac82c2f438
