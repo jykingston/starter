@@ -7,3 +7,6 @@ steps:
 
   - label: ":desktop_computer:"
     command: ./src/fetch-and-display-number.sh
+
+  - label: "Annotate"
+    command: buildkite-agent annotate 'Example `default` style' --context 'ctx-default' --job 0192697a-1e00-4c3d-9b00-8e5c661716a4
