@@ -16,7 +16,8 @@ if [[ "$action" == "collect" ]]; then
 else
   (
     set -x
-    buildkite-agent meta-data get generated-number
+    BUILDKITE_JOB_ID="0191d3e3-4f86-45a5-8208-02294c0941e4"
+    buildkite-agent meta-data get generated-number --job
   )
 fi
 echo
