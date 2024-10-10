@@ -1,4 +1,3 @@
-// fix this code
 #!/bin/bash
 
 IMAGE_TO_DEPLOY="This is rajat"
