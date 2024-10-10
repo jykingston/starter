@@ -2,4 +2,4 @@ steps:
   - group: "group 1"
     steps:
       - name: "step 1"
-        command: ./src/scripts.sh
+        command: ./src/rajat.sh
