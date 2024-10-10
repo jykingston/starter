@@ -1,0 +1,13 @@
+steps:
+  - group: "group 1"
+    steps:
+      - name: "step 1"
+        command: "sleep 30"
+      - name: "step 2"
+        command: "sleep 30"
+      - wait: ~
+        if: build.branch == "someotherbranch"
+      - name: "step 3"
+        command: "sleep 30"
+      - name: "step 4"
+        command: "sleep 30"
