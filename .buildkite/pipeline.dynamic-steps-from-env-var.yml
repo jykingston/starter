@@ -1,8 +1,8 @@
 steps:
-  - label: ":desktop_computer:"
-    command: ./src/script.sh 
+  - label: "Dynamic Steps"
+    command: ./src/generate-steps-from-env-var.sh | buildkite-agent pipeline upload
 
-notify:
-  - github_commit_status:
-      context: "my-custom-status"
-      if: build.env("SEND_NOTIFICATION") == "true"
+  - wait
+
+  - label: ":desktop_computer:"
+    command: ./src/fetch-and-display-number.sh collect
