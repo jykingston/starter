@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      target: app
+      cache_from:
+        - type=registry,ref=${DOCKER_REGISTRY}/test-repo:cache
+      cache_to:
+        - type=registry,ref=${DOCKER_REGISTRY}/test-repo:cache,mode=max
