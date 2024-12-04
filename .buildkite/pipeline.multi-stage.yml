@@ -15,8 +15,6 @@ steps:
             - app:${DOCKER_REGISTRY}/${IMAGE_REPO}:testing
           cache-from:
             - "app:type=registry,ref=${DOCKER_REGISTRY}/${IMAGE_REPO}:cache"
-          cache-to:
-            - "app:type=registry,mode=max,image-manifest=true,ref=${DOCKER_REGISTRY}/${IMAGE_REPO}:cache"
           builder:
             name: container
             use: true
