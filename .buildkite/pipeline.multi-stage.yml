@@ -5,11 +5,11 @@ steps:
   - label: ":docker: Build image for Unit tests"
     plugins:
       - ecr#v2.9.0:
-        login: true
+          login: true
       - docker-compose#v5.5.0:
-        build: app
-        config: docker-compose.yml
-        propagate-environment: true
+          build: app
+          config: docker-compose.yml
+          propagate-environment: true
           push:
             - app:${DOCKER_REGISTRY}/${IMAGE_REPO}:testing
           cache-from:
