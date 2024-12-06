@@ -1,12 +1,18 @@
 steps:
-  - label: ":construction_worker: Build"
-    command: echo "Build the rocket"
-    key: build
-    parallelism: 5
-
-  
-  - block: "Blocked"
- 
-  - label: ":construction_worker: Unblocked"
-    command: echo "Woooot"
-
+  - command: exit -1
+    soft_fail: true
+    key: 'step1'
+  - wait: ~
+  - command: |
+      if [ $(buildkite-agent step get "outcome" --step "step1") == "soft_failed" ]; then
+         cat <<- YAML | buildkite-agent pipeline upload 
+         steps:
+           - label: "Notify slack about soft failed step"
+             command: echo "Notifying slack about the soft_failed step"
+             notify:
+               - slack:
+                   channels:
+                     - "buildkite@jykingston"
+                   message: "Step1 has soft failed."
+      YAML
+      fi

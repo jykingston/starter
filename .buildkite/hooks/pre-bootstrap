@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-S3_BUCKET="jy-kingston-buildkite-onboard-managedsecretsbucket-tyoblc1ifpuc"
+S3_BUCKET="jykingston-buildkite-test-storage"
 S3_PATH="singing-keys"
 LOCAL_DESTINATION="/tmp/"
 CONFIG_FILE="/etc/buildkite-agent/buildkite-agent.cfg"
