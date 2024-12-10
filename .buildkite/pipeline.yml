@@ -7,4 +7,3 @@ steps:
           channels:
             - "buildkite@jykingston"
           message: "The GitHub PAT for verobot needs to be rotated"
-        if: "build.state == 'failed'"
