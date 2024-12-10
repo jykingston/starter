@@ -1,22 +1,8 @@
+env: 
+  OVERWRITE: "ORIGINAL VALUE"
 steps:
   - label: ":construction_worker: Build"
-    command: echo "Build the rocket"
-    key: build
-    parallelism: 5
+    command: echo "$OVERWRITE" && export OVERWRITE="NEW VALUE"
 
   - label: ":white_check_mark: Test"
-    command: echo "Test the rocket"
-    key: test
-    depends_on: build
-
-  - label: ":rocket: Deploy"
-    command: |
-      echo "Launch the rocket"
-      cat .buildkite/annotation.md | buildkite-agent annotate --style "success"
-    key: deploy
-    depends_on: test
-
-  - label: ":rocket: Get metadata from another build"
-    command: |
-      echo "Get metadata from another build"
-      buildkite-agent meta-data get "foo" --build 0191d3de-fa96-4bde-90ab-5febf6f509b7
+    command: echo "$OVERWRITE"
