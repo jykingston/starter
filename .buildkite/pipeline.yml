@@ -1,8 +1,9 @@
 steps:
   - label: "Check verobot PAT expiration"
-    commands: echo "Passing this test"
     notify:
-      - slack:
-          channels:
-            - "#testing-notifications"
-          message: "The GitHub PAT for verobot needs to be rotated"
+    - if: "build.state == 'failed'"
+      slack:
+        message: "The GitHub PAT for verobot needs to be rotated"
+        channels:
+        - "#testing-notifications"
+    command: "echo \"Passing this test\" & exit 1"
