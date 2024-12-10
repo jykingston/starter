@@ -4,5 +4,5 @@ steps:
     notify:
       - slack:
           channels:
-            - "buildkite@jykingston"
+            - "buildkite#testing-notifications"
           message: "The GitHub PAT for verobot needs to be rotated"
