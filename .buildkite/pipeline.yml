@@ -1,7 +1,6 @@
 steps:
   - label: "Check verobot PAT expiration"
-    commands: echo "Passing this test" & exit 1
-    soft_fail: true
+    commands: echo "Passing this test"
     notify:
       - slack:
           channels:
