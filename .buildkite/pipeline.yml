@@ -1,8 +1,9 @@
-env: 
-  OVERWRITE: "ORIGINAL VALUE"
 steps:
-  - label: ":construction_worker: Build"
-    command: echo "$OVERWRITE" && export OVERWRITE="NEW VALUE"
-
-  - label: ":white_check_mark: Test"
-    command: echo "$OVERWRITE"
+  - label: "Check verobot PAT expiration"
+    commands: echo "Passing this test" & exit 1
+    notify:
+      - slack:
+          channels:
+            - "buildkite@jykingston"
+          message: "The GitHub PAT for verobot needs to be rotated"
+        if: "build.state == 'failed'"
