@@ -1,9 +1,0 @@
-services:
-  app:
-    build:
-      context: .
-      target: app
-      cache_from:
-        - type=registry,ref=${DOCKER_REGISTRY}/build-cache/jykingston/nutrien:cache
-      cache_to:
-        - type=registry,ref=${DOCKER_REGISTRY}/build-cache/jykingston/nutrien:cache,mode=max
