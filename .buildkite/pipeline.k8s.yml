@@ -1,5 +1,5 @@
 steps:
-  - label: ":rocket: Push to :kubernetes:"
-    command: script/buildkite/deploy
-    concurrency: 1
-    concurrency_group: deploy/tutorial
+- label: Hello World!
+  command: echo Hello World!
+  agents:
+    queue: kubernetes
