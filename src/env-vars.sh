@@ -2,7 +2,9 @@
 set -euo pipefail
 
 echo "Importing the env vars"
-env_vars=$(<"$BUILDKITE_ENV_FILE")
+#env_vars=$(<"$BUILDKITE_ENV_FILE")
+# Declare a bash array for env_vars
+declare -a env_vars
 
 echo "Output them for posterity"
 echo $env_vars
@@ -29,4 +31,4 @@ echo
 echo "Basic echo with zsh"
 #zsh -c "echo \"$env_vars\""
 echo "with zsh array"
-zsh -c "echo \"${env_vars[@]}\""
+zsh -c "echo ${env_vars[@]}
