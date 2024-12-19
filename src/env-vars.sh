@@ -32,4 +32,4 @@ env_vars="${env_vars[@]}"  # Correctly combine the array into a single string
 
 echo
 echo "testing with zsh"
-zsh -c "echo \"$env_vars\""
+zsh -c "echo \"${env_vars[@]}\""
