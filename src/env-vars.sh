@@ -23,11 +23,13 @@ echo "output with formatting lah"
 echo
 echo ${env_vars[@]}
 echo
-echo "Print them one by one"
-
-for var in "${env_vars[@]}"; do
-  echo "$var"
-done
+echo "Print without formatting"
+echo $env_vars
+echo "with zsh"
+zsh -c "echo \"$env_vars\""
+#for var in "${env_vars[@]}"; do
+#  echo "$var"
+#done
 #env_vars="${env_vars[@]}"  # Correctly combine the array into a single string
 
 echo
