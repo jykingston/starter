@@ -29,6 +29,7 @@ for var in "${env_vars[@]}"; do
   echo "$var"
 done
 
+env_vars=$(<"${env_vars[@]}")
 echo 
 echo "testing with zsh"
-zsh -c "echo ${env_vars[@]}
+zsh -c "echo $env_vars"
