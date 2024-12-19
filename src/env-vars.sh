@@ -29,4 +29,4 @@ echo
 echo "Basic echo with zsh"
 #zsh -c "echo \"$env_vars\""
 echo "with zsh array"
-zsh -c "echo "${env_vars[@]}"
+zsh -c "echo \"${env_vars[@]}\""
