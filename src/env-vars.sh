@@ -4,14 +4,10 @@ set -euo pipefail
 echo "Importing the env vars"
 env_vars=$(<"$BUILDKITE_ENV_FILE")
 
-# Declare the escaped array (forced quotes)
-declare -a env_vars_array
+echo "Output them for posterity"
+echo $env_vars
 
-# Add existing environment variables
-env_vars_array+=("$env_vars")
-
-# Append additional environment variables to the array (subset)
-env_vars_array+=(
+env_vars+=(
     BUILDKITE_AGENT_ACCESS_TOKEN="${BUILDKITE_AGENT_ACCESS_TOKEN_SUBAGENT:-$BUILDKITE_AGENT_ACCESS_TOKEN}"
     BUILDKITE_BUILD_PATH="${BUILDKITE_BUILD_PATH_SUBAGENT:-$BUILDKITE_BUILD_PATH}"
     BUILDKITE_HOOKS_PATH="${BUILDKITE_HOOKS_PATH_SUBAGENT:-$BUILDKITE_HOOKS_PATH}"
@@ -23,9 +19,14 @@ env_vars_array+=(
     BUILDKITE_AGENT_DEBUG="${BUILDKITE_AGENT_DEBUG_SUBAGENT:-$BUILDKITE_AGENT_DEBUG}"
 )
 
-
-# Output the variables
-echo "Output BASH"
-bash -c "echo ${env_vars_array[@]}"
-echo "Output ZSH"
-zsh -c "echo ${env_vars_array[@]}"
+echo "output with new values"
+echo
+echo ${env_vars[@]}
+echo
+echo "Basic echo without array"
+echo $env_vars
+echo
+echo "Basic echo with zsh"
+zsh -c "echo \"$env_vars\""
+echo "with zsh array"
+zsh -c "echo "${env_vars[@]}"
