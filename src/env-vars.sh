@@ -27,6 +27,6 @@ echo "Basic echo without array"
 echo $env_vars
 echo
 echo "Basic echo with zsh"
-zsh -c "echo \"$env_vars\""
+#zsh -c "echo \"$env_vars\""
 echo "with zsh array"
 zsh -c "echo "${env_vars[@]}"
