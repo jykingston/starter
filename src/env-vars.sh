@@ -1,8 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
+echo "Importing the env vars"
 env_vars=$(<"$BUILDKITE_ENV_FILE")
 
+echo "Output them for posterity"
 echo $env_vars
 
 env_vars+=(
@@ -17,5 +19,6 @@ env_vars+=(
     BUILDKITE_AGENT_DEBUG=${BUILDKITE_AGENT_DEBUG_SUBAGENT:-$BUILDKITE_AGENT_DEBUG}
 )
 
+echo "output with formatting lah"
 echo "${env_vars[@]}"
 
