@@ -21,10 +21,14 @@ env_vars+=(
 
 echo "output with formatting lah"
 echo
-echo "${env_vars[@]}"
+echo ${env_vars[@]}
 echo
 echo "Print them one by one"
 
 for var in "${env_vars[@]}"; do
   echo "$var"
 done
+
+echo 
+echo "testing with zsh"
+zsh -c "echo ${env_vars[@]}
