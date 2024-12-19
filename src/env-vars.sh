@@ -17,9 +17,9 @@ env_vars_array+=(
 
 # Output the variables
 echo "Output:"
-for var in "${env_vars_array[@]}"; do
-    echo "$var"
-done
+#for var in "${env_vars_array[@]}"; do
+#    echo "$var"
+#done
 
 
 zsh -c "echo \"${env_vars[@]}\""
