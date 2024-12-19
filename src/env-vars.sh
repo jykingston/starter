@@ -1,3 +1,5 @@
+#!/bin/bash
+set -euo pipefail
 
 env_vars=$(<"$BUILDKITE_ENV_FILE")
 
