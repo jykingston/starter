@@ -25,6 +25,7 @@ echo ${env_vars[@]}
 echo
 echo "Print without formatting"
 echo $env_vars
+echo
 echo "with zsh"
 zsh -c "echo \"$env_vars\""
 #for var in "${env_vars[@]}"; do
@@ -32,7 +33,7 @@ zsh -c "echo \"$env_vars\""
 #done
 #env_vars="${env_vars[@]}"  # Correctly combine the array into a single string
 
-echo
-echo "testing with zsh"
-escaped_vars=$(printf '%q ' "${env_vars[@]}")
-zsh -c "echo \"$escaped_vars\""
+#echo
+#echo "testing with zsh"
+#escaped_vars=$(printf '%q ' "${env_vars[@]}")
+#zsh -c "echo \"$escaped_vars\""
