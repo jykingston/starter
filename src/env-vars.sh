@@ -22,4 +22,4 @@ for var in "${env_vars_array[@]}"; do
 done
 
 
-zsh -c "echo ${env_vars[@]}"
+zsh -c "echo \"${env_vars[@]}\""
