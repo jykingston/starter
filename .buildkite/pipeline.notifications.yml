@@ -1,5 +1,3 @@
 steps:
-  - label: "Example Test - pass"
-    command: echo "Hello!"
-    notify:
-      - slack: "@jykingston"
+  - label: "Trying to output the buildkite_env_file"
+    command: echo "$BUILDKITE_ENV_FILE"
