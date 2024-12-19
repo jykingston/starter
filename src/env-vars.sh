@@ -17,6 +17,6 @@ env_vars_array+=(
 
 # Output the variables
 echo "Output BASH"
-bash -c "echo \"${env_vars_array[@]}\""
+bash -c "echo ${env_vars_array[@]}"
 echo "Output ZSH"
-zsh -c "echo \"${env_vars_array[@]}\""
+zsh -c "echo ${env_vars_array[@]}"
