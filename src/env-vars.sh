@@ -28,8 +28,8 @@ echo "Print them one by one"
 for var in "${env_vars[@]}"; do
   echo "$var"
 done
+env_vars="${env_vars[@]}"  # Correctly combine the array into a single string
 
-env_vars=$(<"${env_vars[@]}")
-echo 
+echo
 echo "testing with zsh"
-zsh -c "echo $env_vars"
+zsh -c "echo \"$env_vars\""
