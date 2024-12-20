@@ -27,5 +27,6 @@ for env_var in "${env_vars[@]}"; do
   export_command+="export $env_var;"
 done
 
+echo $export_command
 zsh -c "echo $export_command"
 
