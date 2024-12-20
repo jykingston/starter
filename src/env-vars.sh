@@ -28,5 +28,5 @@ for env_var in "${env_vars[@]}"; do
 done
 
 echo $export_command
-zsh -c "echo $export_command"
+zsh -c "setopt SH_WORD_SPLIT; echo $export_command"
 
