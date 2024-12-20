@@ -20,13 +20,7 @@ env_vars+=(
 
 echo "Print the env_vars array with all elements"
 echo ${env_vars[@]}
-echo "--------------------------------------------"
+echo "-------------------------------------"
 
-export_command=""
-for env_var in "${env_vars[@]}"; do
-  export_command+="export $env_var;"
-done
-
-#echo $export_command
-zsh -c "setopt SH_WORD_SPLIT; echo \"${export_command}\""
+zsh -c "bash -c \"echo ${env_vars[@]}\""
 
