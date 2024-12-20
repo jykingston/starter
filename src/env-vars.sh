@@ -24,3 +24,11 @@ echo "--------------------------------------------"
 echo "Print it with zsh array"
 zsh -c "echo $env_vars[@]"
 
+echo "Print it with zsh array []"
+zsh -c "echo $env_vars[]"
+
+
+echo "Print it with zsh array [*]"
+zsh -c "echo $env_vars[*]"
+
+
