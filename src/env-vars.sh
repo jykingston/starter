@@ -22,5 +22,5 @@ echo "Print the env_vars array with all elements"
 echo ${env_vars[@]}
 echo "-------------------------------------"
 
-zsh -c "bash -c \"echo ${env_vars[@]}\""
+zsh -c "bash -c \"echo \"${env_vars[@]}\"\""
 
