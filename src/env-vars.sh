@@ -4,8 +4,8 @@ set -euo pipefail
 echo "Importing the env vars"
 #env_vars=$(<"$BUILDKITE_ENV_FILE")
 # Declare a bash array for env_vars
-declare -A env_vars=()
-
+declare -A env_vars
+env_vars=(foo bar)
 
 env_vars+=(
     BUILDKITE_AGENT_ACCESS_TOKEN="${BUILDKITE_AGENT_ACCESS_TOKEN_SUBAGENT:-$BUILDKITE_AGENT_ACCESS_TOKEN}"
