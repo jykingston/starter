@@ -2,7 +2,7 @@
 set -euo pipefail
 # This saves really?
 echo "Importing the env vars"
-#env_vars=$(<"$BUILDKITE_ENV_FILE")
+env_vars=$(<"$BUILDKITE_ENV_FILE")
 # Declare a bash array for env_vars
 #declare -A env_vars
 #env_vars=(foo bar)
