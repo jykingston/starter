@@ -1,6 +1,14 @@
 steps:
-  - label: "Check verobot PAT expiration"
-    commands: echo "Passing this test $0"
+- label: ":pipeline: Post Builds"
+  key: post_builds
+  group:
+  steps:
+  - label: ":bk-status-passed: 9db9cc18e215c76e63971aa8058e85802215c251"
+    trigger: metadata-starter
+    async: true
     build:
       message: "[PAY-31907] Ignore job titles and $0 hourly earnings in compare_hourly_earnings_rows
         Pays parity (#256081)"
+      branch: main
+      env:
+        POST_BUILD_PARENT_BUILD_NUMBER: 1117902
