@@ -1,6 +1,6 @@
 steps:
   - label: "Check verobot PAT expiration"
-    commands: echo "Passing this test"
+    commands: echo "Passing this test $0"
     build:
       message: "[PAY-31907] Ignore job titles and $0 hourly earnings in compare_hourly_earnings_rows
         Pays parity (#256081)"
