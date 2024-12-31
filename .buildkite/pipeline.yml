@@ -7,7 +7,7 @@ steps:
     trigger: metadata-starter
     async: true
     build:
-      message: "[PAY-31907] Ignore job titles and ${POST_BUILD_PARENT_BUILD_NUMBER} hourly earnings in compare_hourly_earnings_rows Pays parity (#256081)"
+      message: "[PAY-31907] Ignore job titles and $${POST_BUILD_PARENT_BUILD_NUMBER} hourly earnings in compare_hourly_earnings_rows Pays parity (#256081)"
       branch: main
       env:
         POST_BUILD_PARENT_BUILD_NUMBER: 1117902
