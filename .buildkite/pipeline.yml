@@ -7,7 +7,7 @@ steps:
     trigger: metadata-starter
     async: true
     build:
-      message: "[PAY-31907] Ignore job titles and \$0 hourly earnings in compare_hourly_earnings_rows
+      message: "[PAY-31907] Ignore job titles and $$0 hourly earnings in compare_hourly_earnings_rows
         Pays parity (#256081)"
       branch: main
       env:
