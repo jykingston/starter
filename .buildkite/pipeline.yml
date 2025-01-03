@@ -21,4 +21,4 @@ steps:
     key: "post-lint"
     steps:
       - label: ":rocket: Final Task"
-        command: "sleep 60; echo 'Running final task'"
+        command: "echo 'Running final task'"
