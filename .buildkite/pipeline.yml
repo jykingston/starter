@@ -6,7 +6,7 @@ steps:
     command: echo "Running Stage 2"
 
   - label: ":hammer: Stage 3 - Intentional Failure"
-    command: exit 1
+    command: sleep 30; exit 1
 
   - label: ":hammer: Stage 4"
     command: echo "Running Stage 4"
