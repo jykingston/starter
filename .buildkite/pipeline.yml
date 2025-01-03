@@ -16,6 +16,8 @@ steps:
         command: |
           echo "This step will fail, but others will finish."
           exit 1
+      - label: ":lint-roller: Linting code"
+        command: "echo 'Running code linting'"
 
   - group: ":trophy: Post-linting"
     key: "post-lint"
