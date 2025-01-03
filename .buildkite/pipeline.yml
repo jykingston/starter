@@ -5,8 +5,11 @@ steps:
   - label: ":hammer: Stage 2"
     command: echo "Running Stage 2"
 
-  - label: ":hammer: Stage 3 - Intentional Failure"
-    command: sleep 30; exit 1
+  - label: ":warning: Stage 3 - Soft Fail"
+    command: |
+      echo "This step will fail, but it's soft-fail configured."
+      exit 1
+    allow_failure: true
 
   - label: ":hammer: Stage 4"
     command: echo "Running Stage 4"
