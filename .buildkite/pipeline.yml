@@ -6,10 +6,7 @@ steps:
     command: echo "Running Stage 2"
 
   - label: ":warning: Stage 3 - Soft Fail"
-    command: |
-      echo "This step will fail, but it's soft-fail configured."
-      exit 1
-    allow_failure: true
+    command: sleep 60; exit 1
 
   - label: ":hammer: Stage 4"
     command: echo "Running Stage 4"
