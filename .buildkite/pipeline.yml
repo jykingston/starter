@@ -1,15 +1,27 @@
 steps:
-  - label: ":hammer: Stage 1"
-    command: echo "Running Stage 1"
+  - label: ":hammer: Step 1"
+    command: echo "Running Step 1"
 
-  - label: ":hammer: Stage 2"
-    command: echo "Running Stage 2"
+  - label: ":hammer: Step 2"
+    command: echo "Running Step 2"
 
-  - label: ":warning: Stage 3 - Soft Fail"
-    command: sleep 60; exit 1
+  - label: ":hammer: Step 3 (Fail)"
+    command: |
+      echo "This step will fail and run last"
+      exit 1
+    depends_on: 
+      - "Step 1"
+      - "Step 2"
+    allow_failure: true
 
-  - label: ":hammer: Stage 4"
-    command: echo "Running Stage 4"
-
-  - label: ":hammer: Stage 5"
-    command: echo "Running Stage 5"
+  - label: ":hammer: Step 4"
+    command: echo "Running Step 4"
+    depends_on: 
+      - "Step 1"
+      - "Step 2"
+      
+  - label: ":hammer: Step 5"
+    command: echo "Running Step 5"
+    depends_on: 
+      - "Step 1"
+      - "Step 2"
