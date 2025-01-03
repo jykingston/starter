@@ -1,9 +1,11 @@
 steps:
   - label: ":hammer: Step 1"
     command: echo "Running Step 1"
+    key: "Step 1"
 
   - label: ":hammer: Step 2"
     command: echo "Running Step 2"
+    key: "Step 2"
 
   - label: ":hammer: Step 3 fail"
     command: |
