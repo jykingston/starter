@@ -12,7 +12,6 @@ steps:
     depends_on: 
       - "Step 1"
       - "Step 2"
-    allow_failure: true
 
   - label: ":hammer: Step 4"
     command: echo "Running Step 4"
