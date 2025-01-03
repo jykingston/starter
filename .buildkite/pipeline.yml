@@ -5,7 +5,7 @@ steps:
   - label: ":hammer: Step 2"
     command: echo "Running Step 2"
 
-  - label: ":hammer: Step 3 (Fail)"
+  - label: ":hammer: Step 3 fail"
     command: |
       echo "This step will fail and run last"
       exit 1
