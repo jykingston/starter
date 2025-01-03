@@ -1,28 +1,24 @@
 steps:
-  - label: ":hammer: Step 1"
-    command: echo "Running Step 1"
-    key: "Step 1"
+  - group: ":lock_with_ink_pen: Security Audits"
+    key: "audits"
+    steps:
+      - label: ":brakeman: Brakeman"
+        command: "echo 'Running Brakeman audit'"
+      - label: ":yarn: Yarn Audit"
+        command: "echo 'Running Yarn audit'"
 
-  - label: ":hammer: Step 2"
-    command: echo "Running Step 2"
-    key: "Step 2"
+  - group: ":construction_worker: Linting"
+    key: "linters"
+    steps:
+      - label: ":lint-roller: Linting code"
+        command: "echo 'Running code linting'"
+      - label: ":exclamation: Failing Step"
+        command: |
+          echo "This step will fail, but others will finish."
+          sleep 60; exit 1
 
-  - label: ":hammer: Step 3 fail"
-    command: |
-      echo "This step will fail and run last"
-      exit 1
-    depends_on: 
-      - "Step 1"
-      - "Step 2"
-
-  - label: ":hammer: Step 4"
-    command: echo "Running Step 4"
-    depends_on: 
-      - "Step 1"
-      - "Step 2"
-      
-  - label: ":hammer: Step 5"
-    command: echo "Running Step 5"
-    depends_on: 
-      - "Step 1"
-      - "Step 2"
+  - group: ":trophy: Post-linting"
+    key: "post-lint"
+    steps:
+      - label: ":rocket: Final Task"
+        command: "echo 'Running final task'"
