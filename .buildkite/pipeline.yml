@@ -1,26 +1,3 @@
 steps:
-  - group: ":lock_with_ink_pen: Security Audits"
-    key: "audits"
-    steps:
-      - label: ":brakeman: Brakeman"
-        command: "echo 'Running Brakeman audit'"
-      - label: ":yarn: Yarn Audit"
-        command: "echo 'Running Yarn audit'"
-
-  - group: ":construction_worker: Linting"
-    key: "linters"
-    steps:
-      - label: ":lint-roller: Linting code"
-        command: "echo 'Running code linting'"
-      - label: ":exclamation: Failing Step"
-        command: |
-          echo "This step will fail, but others will finish."
-          exit 1
-      - label: ":lint-roller: Linting code"
-        command: "echo 'Running code linting'"
-
-  - group: ":trophy: Post-linting"
-    key: "post-lint"
-    steps:
-      - label: ":rocket: Final Task"
-        command: "sleep 60; echo 'Running final task'"
+  - label: "Lets get some secrets"
+    command: ./src/secrets.sh
