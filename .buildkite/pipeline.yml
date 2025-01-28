@@ -1,5 +1,10 @@
 steps:
-  - label: "Lets get some secrets"
-    command: ./src/secrets.sh
-  - label: "Lets get some secrets Round 2"
-    command: ./src/secrets.sh
+ -  label: ":aws: Deploy to Production"
+    key: deploy-to-production
+    command: echo "Example Deploy Key equals \$EXAMPLE_DEPLOY_KEY"
+    env:
+      AWS_DEFAULT_REGION: ap-southeast-2
+      AWS_REGION: ap-southeast-2
+    plugins:
+      - aws-assume-role-with-web-identity#v1.0.0:
+          role-arn: arn:aws:iam::097340723131:role/JyentOIDCRole
