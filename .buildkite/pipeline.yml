@@ -1,3 +1,5 @@
 steps:
   - label: "Lets get some secrets"
     command: ./src/secrets.sh
+  - label: "Lets get some secrets Round 2"
+    command: ./src/secrets.sh
