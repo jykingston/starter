@@ -7,7 +7,7 @@ SECRET_TOKEN_1="secret-token-1"
 echo "SECRET_TOKEN_1: $SECRET_TOKEN_1"
 
 SECRET_TOKEN_2="secret-token-2"
-THIS_IS_REALLY_SECRET"secret-token"
+THIS_IS_REALLY_SECRET="secret-token"
 
 set -x
 echo "SECRET_TOKEN_1: $SECRET_TOKEN_1"
