@@ -1,3 +1,4 @@
+notify:
   # Notify user
   - slack: "@jy"
 
