@@ -2,7 +2,6 @@ notify:
   # Notify user
   - slack: "@jy"
     if: build.state == "passed"
-    message: "Example Test BUILD Notification"
     
 steps:
   - label: "Example Test - pass"
