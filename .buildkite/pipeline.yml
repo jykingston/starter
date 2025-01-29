@@ -1,7 +1,7 @@
 notify:
   # Notify user
   - slack: "@jy"
-    if: build.env(BUILDKITE_STEP_KEY) == 'unitTests' && build.state != 'failed'
+    if: build.state != 'failed'
 
 steps:
   - label: "Example Test - pass"
@@ -9,4 +9,4 @@ steps:
     key: unitTests
     notify:
       - slack: "@jy"
-        if: build.env(BUILDKITE_STEP_KEY) == 'unitTests' && build.state == 'failed'
+        if: build.state == 'failed'
