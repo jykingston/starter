@@ -13,8 +13,9 @@ steps:
          cat <<- YAML | buildkite-agent pipeline upload 
          steps:
            - label: "Notify slack about soft failed step"
-             command: echo "Notifying slack about the soft_failed step" && exit 1
+             command: echo "Notifying slack about the soft_failed step"
              notify:
                - slack: "@jy"
+           - command: exit 1
       YAML
       fi
