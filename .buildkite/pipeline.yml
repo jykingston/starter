@@ -5,7 +5,7 @@ notify:
     
 steps:
   - label: "Example Test - pass"
-    command: echo "Hello!"
+    command: echo "Hello!"; exit 1
     key: unitTests
     notify:
       - slack: "@jy"
