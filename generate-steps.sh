@@ -6,13 +6,13 @@ output_file="pipeline.yml"
 # Start the pipeline configuration
 echo "steps:" > $output_file
 
-# Generate 5 dynamic steps with parallelism
+# Generate 5 dynamic steps with concurrency
 for i in {1..5}
 do
   cat <<EOF >> $output_file
   - command: "echo Processing part $i"
     label: ":echo: Echo part $i"
-    concurrency_group: 'our-payment-gateway/deploy'
+    concurrency_group: 'deploy'
     concurrency: 5
 EOF
 done
