@@ -1,13 +1,21 @@
 notify:
   # Notify user
   - slack: "@jy"
-    if: build.state == "failed"
+    if: build.state != "passed"
     
 steps:
-  - label: "Example Test - pass"
-    command: echo "Hello!"; exit 1
-    key: unitTests
-    notify:
-      - slack: "@jy"
-        if: build.state == 'failed'
-
+  - command: exit -1
+    soft_fail: true
+    key: 'step1'
+  - wait: ~
+  - command: |
+      if [ $(buildkite-agent step get "outcome" --step "step1") == "soft_failed" ]; then
+         cat <<- YAML | buildkite-agent pipeline upload 
+         steps:
+           - label: "Notify slack about soft failed step"
+             command: echo "Notifying slack about the soft_failed step"
+             notify:
+               - slack: "@jy"
+                 message: "Step1 has soft failed."
+      YAML
+      fi
