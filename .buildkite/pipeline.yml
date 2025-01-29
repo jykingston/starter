@@ -1,5 +1,8 @@
+  # Notify user
+  - slack: "@jy"
+
 steps:
   - label: "Example Test - pass"
     command: echo "Hello!"
     notify:
-      - slack: "@jykingston"
+      - slack: "@jy"
