@@ -16,6 +16,7 @@ steps:
              command: echo "Notifying slack about the soft_failed step"
              notify:
                - slack: "@jy"
-           - command: exit 1
+           - label: "Exit with error"
+             command: exit 1
       YAML
       fi
