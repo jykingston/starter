@@ -12,7 +12,8 @@ do
   cat <<EOF >> $output_file
   - command: "echo Processing part $i"
     label: ":echo: Echo part $i"
-    parallelism: 5
+    concurrency_group: 'our-payment-gateway/deploy'
+    concurrency: 5
 EOF
 done
 
