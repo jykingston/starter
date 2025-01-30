@@ -6,15 +6,18 @@ notify:
 steps:
   - command: exit -1
     key: 'step1'
+    soft_fail: true
   - wait: ~
   - command: |
-      if [ $(buildkite-agent step get "outcome" --step "step1") == "failed" ]; then
+      if [ $(buildkite-agent step get "outcome" --step "step1") == "soft_failed" ]; then
          cat <<- YAML | buildkite-agent pipeline upload 
          steps:
            - label: "Notify slack about soft failed step"
              command: echo "Notifying slack about the soft_failed step"
              notify:
                - slack: "@jy"
+           - label: "fail and exit"
+             command: exit 1
       YAML
       fi
 
