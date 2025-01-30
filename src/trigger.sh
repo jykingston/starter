@@ -10,7 +10,7 @@ steps:
 - async: true
   build:
     env:
-      WORKLOAD: |-
+      WORKLOAD: |
         {"type": "fix-test",
          "metadata": {
            "build_number": "1020507",
