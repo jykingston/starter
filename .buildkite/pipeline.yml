@@ -4,7 +4,7 @@ notify:
     if: build.state == "passed"
 
 steps:
-  - command: exit -1
+  - command: exit 0;
     key: 'step1'
     soft_fail: true
   - wait: ~
