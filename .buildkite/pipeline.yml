@@ -1,7 +1,7 @@
 notify:
   # Notify user
   - slack: "@jy"
-    if: build.state == "passed"
+    if: build.state == "failed"
     
 steps:
   - command: exit -1
