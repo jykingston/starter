@@ -17,4 +17,3 @@ steps:
                - slack: "@jy"
            - label: "Exit with error"
              command: exit 1
-      YAML
