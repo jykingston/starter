@@ -6,9 +6,7 @@ env:
   PAGER_DUTY_API_KEY: "136898a15c734aeea4b61fdb6111111"
   
 steps:
-  - label: "Setup redaction and test"
-    command: ./src/redact.sh
   - label: "Did it redact?"
-    command: "echo '136898a15c734aeea4b61fdb6111111'; echo 'pagerduty_change_event'"
+    command: "echo $PAGER_DUTY_API_KEY"
   - name: "After end, sleep"
     command: "echo 'Do something else'; sleep 10"
