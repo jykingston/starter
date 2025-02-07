@@ -2,7 +2,9 @@ notify:
   # https://buildkite.pagerduty.com/service-directory/PANYOJ2/integrations
   - pagerduty_change_event: "136898a15c734aeea4b61fdb6111111"
     if: "build.state == 'failed'"
-
+env:
+  PAGER_DUTY_API_KEY: "136898a15c734aeea4b61fdb6111111"
+  
 steps:
   - label: "Setup redaction and test"
     command: ./src/redact.sh
