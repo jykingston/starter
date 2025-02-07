@@ -1,24 +1,30 @@
 notify:
-  # Notify user
-  - slack: "@jy"
-    if: build.state == "passed"
+  # https://buildkite.pagerduty.com/service-directory/PANYOJ2/integrations
+  - pagerduty_change_event: "136898a15c734aeea4b61fdb6111111"
+    if: "build.state == 'failed'"
 
 steps:
-  - command: exit 0;
-    key: 'step1'
+  - name: "Redact stuff please"
+    command: 'echo 136898a15c734aeea4b61fdb6111111 | buildkite-agent redactor add'
+    concurrency: 1
+    concurrency_group: "packmanager/deployment/all-prod-envs"
+  
+  - wait
+  - label: "Trigger step"
+    trigger: "starter"
     soft_fail: true
-  - wait: ~
-  - command: |
-      if [ $(buildkite-agent step get "outcome" --step "step1") == "soft_failed" ]; then
-         cat <<- YAML | buildkite-agent pipeline upload 
-         steps:
-           - label: "Notify slack about soft failed step"
-             command: echo "Notifying slack about the soft_failed step"
-             notify:
-               - slack: "@jy"
-           - label: "fail and exit"
-             command: exit 1
-      YAML
-      fi
+  
+  - name: "Inside group, after trigger"
+    command: "echo 'Do something else'; sleep 10"
+  - wait
+  
+  - name: "After wait, sleep"
+    command: "echo 'Do something else'; sleep 10"
+    
+  - name: "END"
+    command: "echo 'End of concurrency gate'"
+    concurrency: 1
+    concurrency_group: "packmanager/deployment/all-prod-envs"
 
-
+  - name: "After end, sleep"
+    command: "echo 'Do something else'; sleep 10"
