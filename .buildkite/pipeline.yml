@@ -3,10 +3,10 @@ notify:
   - pagerduty_change_event: "136898a15c734aeea4b61fdb6111111"
     if: "build.state == 'failed'"
 env:
-  PAGER_DUTY_API_KEY: "136898a15c734aeea4b61fdb6111111"
+  PAGER_DUTY_API_KEY_SECRET: "136898a15c734aeea4b61fdb6111111"
   
 steps:
   - label: "Did it redact?"
-    command: "echo $PAGER_DUTY_API_KEY"
+    command: "echo $PAGER_DUTY_API_KEY_SECRET"
   - name: "After end, sleep"
     command: "echo 'Do something else'; sleep 10"
