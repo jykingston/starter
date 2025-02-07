@@ -5,10 +5,8 @@ notify:
 
 steps:
   - label: "Setup redaction and test"
-    commands:
-      - echo "136898a15c734aeea4b61fdb6111111" | buildkite-agent redactor add;
-      - echo "pagerduty_change_event" | buildkite-agent redactor add;
-      - echo "This should not show: 136898a15c734aeea4b61fdb6111111"
-      - echo "This should not show: pagerduty_change_event"
+    command: ./src/redact.sh
+  - label: "Did it redact?"
+    command: "echo '136898a15c734aeea4b61fdb6111111'; echo 'pagerduty_change_event'"
   - name: "After end, sleep"
     command: "echo 'Do something else'; sleep 10"
