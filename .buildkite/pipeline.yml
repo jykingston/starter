@@ -5,7 +5,7 @@ notify:
 
 steps:
   - name: "Redact stuff please"
-    command: 'echo 136898a15c734aeea4b61fdb6111111 | buildkite-agent redactor add --replace-with="REDACTED"; echo "pagerduty_change_event" | buildkite-agent redactor add --replace-with="REDACTED"'
+    command: 'echo 136898a15c734aeea4b61fdb6111111 | buildkite-agent redactor add; echo "pagerduty_change_event" | buildkite-agent redactor add'
     concurrency: 1
     concurrency_group: "packmanager/deployment/all-prod-envs"
   
