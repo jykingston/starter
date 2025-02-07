@@ -1,5 +1,5 @@
 # Add redaction rule
-echo "136898a15c734aeea4b61fdb6111111" | buildkite-agent redactor add
-echo "pagerduty_change_event" | buildkite-agent redactor add
+buildkite-agent redactor add "136898a15c734aeea4b61fdb6111111" 
+buildkite-agent redactor add "pagerduty_change_event" 
 
 # Continue with other commands
