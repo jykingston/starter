@@ -5,7 +5,7 @@ DAY_OF_WEEK=$(date +%u)
 
 # Define the logic to determine skipping
 # Skip on weekends (6 for Saturday, 7 for Sunday)
-if [[ "$DAY_OF_WEEK" == "6" || "$DAY_OF_WEEK" == "7" ]]; then
+if [[ "$DAY_OF_WEEK" == "3" || "$DAY_OF_WEEK" == "7" ]]; then
     echo "true"
 else
     echo "false"
