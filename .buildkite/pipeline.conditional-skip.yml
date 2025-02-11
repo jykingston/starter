@@ -1,0 +1,18 @@
+steps:
+  - label: "Calculate Condition Value"
+    command: |
+      # Calculate your value here; example:
+      export SHOULD_SKIP=$(./src/determine-skip.sh)  # This script should output 'true' or 'false'
+      echo "export SHOULD_SKIP='$SHOULD_SKIP'" >> buildkite-env.sh
+    artifact_paths: buildkite-env.sh
+
+  - wait: ~
+
+  - label: "Setup Environment"
+    command: "buildkite-agent artifact download buildkite-env.sh . && source buildkite-env.sh"
+
+  - wait
+
+  - label: "Conditionally Skipped Step"
+    command: "echo 'This step was not skipped.'"
+    if: "build.env('SHOULD_SKIP') != 'true'"
