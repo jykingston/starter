@@ -15,6 +15,6 @@ steps:
   - wait: ~
 
   - label: "Conditionally Skipped Step"
-    command: "echo 'This step was not skipped.'"
+    command: "echo ENV VAR IS: $SHOULD_SKIP && echo 'This step was not skipped.'"
     depends_on: setup
     if: "build.env('SHOULD_SKIP') != 'true'"
