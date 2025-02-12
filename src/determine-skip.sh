@@ -2,5 +2,4 @@
 
 # export SKIP_TESTS=false
 export SKIP_TESTS=true
-SKIP_TESTS=true >> buildkite-env.sh
-
+echo "export SHOULD_SKIP='true'" >> buildkite-env.sh
