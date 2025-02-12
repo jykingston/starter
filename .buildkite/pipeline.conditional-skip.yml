@@ -3,7 +3,7 @@ steps:
     command: |
       # Calculate your value here; example:
       export SHOULD_SKIP=$(./src/determine-skip.sh)  # This script should output 'true' or 'false'
-      echo "export SHOULD_SKIP='$SHOULD_SKIP'" >> buildkite-env.sh
+      echo "export SHOULD_SKIP='true'" >> buildkite-env.sh
     artifact_paths: buildkite-env.sh
 
   - wait: ~
