@@ -10,4 +10,5 @@ if [ "$SKIP_TESTS" = false ]; then
     buildkite-agent pipeline upload .buildkite/pipeline.yml >> buildkite-env.sh
 else
     echo "Skip Tests"
+    buildkite-agent pipeline upload .buildkite/pipeline-skip.yml >> buildkite-env.sh
 fi
