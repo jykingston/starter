@@ -2,4 +2,12 @@
 
 # export SKIP_TESTS=false
 export SKIP_TESTS=true
-echo "export SHOULD_SKIP='true'" >> buildkite-env.sh
+echo "Skip Tests = $SKIP_TESTS"
+
+# Run agent pipeline upload for the step if it didn't Skip
+if [ "$SKIP_TESTS" = false ]; then
+    echo "Run Tests"
+    buildkite-agent pipeline upload .buildkite/pipeline.yml >> buildkite-env.sh
+else
+    echo "Skip Tests"
+fi
