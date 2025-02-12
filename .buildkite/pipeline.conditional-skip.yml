@@ -9,8 +9,14 @@ steps:
     command: "buildkite-agent artifact download buildkite-env.sh . && source buildkite-env.sh"
 
   - wait
-
+  
   - label: "Conditionally Skipped Step"
-    command: "echo 'This step was not skipped.'"
-    if: "build.env('SHOULD_SKIP') != 'true'"
+    command: |
+      source buildkite-env.sh
+      echo "SHOULD_SKIP value is $SHOULD_SKIP"
+      if [[ "$SHOULD_SKIP" != "true" ]]; then
+        echo 'This step was not skipped.'
+      else
+        echo 'This step is skipped.'
+      fi
 
