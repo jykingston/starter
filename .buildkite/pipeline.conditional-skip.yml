@@ -2,7 +2,7 @@ steps:
   - label: "Calculate Condition Value"
     command: |
       # Calculate your value here; example:
-      export SHOULD_SKIP=$(./determine-skip.sh)  # This script should output 'true' or 'false'
+      export SHOULD_SKIP=$(./src/determine-skip.sh)  # This script should output 'true' or 'false'
       echo "export SHOULD_SKIP='$SHOULD_SKIP'" >> buildkite-env.sh
     artifact_paths: buildkite-env.sh
 
