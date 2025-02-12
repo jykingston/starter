@@ -1,3 +1,5 @@
+env: 
+  SHOULD_SKIP: "false"
 steps:
   - label: "Calculate Condition Value"
     command: |
