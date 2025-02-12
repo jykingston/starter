@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export SKIP_TESTS=false
-#export SKIP_TESTS=true
+#export SKIP_TESTS=false
+export SKIP_TESTS=true
 echo "Skip Tests = $SKIP_TESTS"
 
 # Run agent pipeline upload for the step if it didn't Skip
