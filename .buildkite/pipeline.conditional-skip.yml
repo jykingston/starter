@@ -5,7 +5,7 @@ steps:
 
   - wait: ~
 
-  - label: "Create Environment and determine next steps"
+  - label: "Create Environment"
     command: "buildkite-agent artifact download buildkite-env.sh . && ./buildkite-env.sh"
 
   
