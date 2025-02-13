@@ -1,0 +1,32 @@
+steps:
+  - label: ':nodejs: Install dependencies'
+    command: npm ci
+    plugins:
+      - cache#v1.4.0:
+          manifest: package-lock.json
+          path: node_modules
+          restore: pipeline
+          save:
+            - file
+            - branch
+  - wait: ~
+  - label: ':test_tube: Run tests'
+    command: npm test # does not save cache, not necessary
+    plugins:
+      - cache#v1.4.0:
+          manifest: package-lock.json
+          path: node_modules
+          restore: file
+  - wait: ~  # don't run deploy until tests pass
+  - label: ':goal_net: Save stable cache after deployment'
+    if: build.branch == "master"
+    command: npm run deploy
+    plugins:
+      - cache#v1.4.0:
+          manifest: package-lock.json
+          path: node_modules
+          restore: file
+          save:
+            - pipeline
+            - all
+
