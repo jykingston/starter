@@ -1,5 +1,5 @@
 steps:
-  - command: "go build -o dist/my-app ."
+  - command: "ls /workdir"
     artifact_paths: "./dist/my-app"
     plugins:
       - docker#v5.12.0:
