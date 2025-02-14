@@ -1,20 +1,17 @@
 steps:
-  - command: "ls -la /workdir"
-    plugins:
-      - docker#v5.12.0:
-          image: "golang:1.11"
-
-
   - key: "np-check-formatting"
     label: "NP | Check go formatting"
     commands: "set -euo pipefail\ncd /workdir; ls -la; \n\necho --- Checking for formatting\nmake format\nif ! git diff --exit-code; then\n    echo \"Go files were not formatted correctly. Please commit the changes after running make format.\"\n    git diff  # Show the differences\n    exit 1\nelse\n    echo \"All Go files are formatted correctly.\"\nfi\n"
     plugins:
-    - docker#v5.9.0:
-        image: "golang:1.22.1"
-        shell:
-        - "/bin/bash"
-        - "-c"
-        network: "host"
-        environment:
-        - "GO_BIN_PATH=/go/bin"
-
+      - docker#v5.9.0:
+          image: "golang:1.22.1"
+          shell:
+            - "/bin/bash"
+            - "-c"
+          network: "host"
+          environment:
+            - "GO_BIN_PATH=/go/bin"
+          volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"
+            # mount the current directory to the workdir
+            - "./:/workdir"
