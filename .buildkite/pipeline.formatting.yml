@@ -1,6 +1,5 @@
 steps:
-  - command: "ls /workdir"
-    artifact_paths: "./dist/my-app"
+  - command: "ls -la /workdir"
     plugins:
       - docker#v5.12.0:
           image: "golang:1.11"
