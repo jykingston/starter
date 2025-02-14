@@ -12,5 +12,6 @@ steps:
           environment:
             - "GO_BIN_PATH=/go/bin"
           propagate-uid-gid: true
+          workdir: "/app"
           volumes:
             - "/var/run/docker.sock:/var/run/docker.sock"
