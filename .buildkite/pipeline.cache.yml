@@ -2,7 +2,7 @@ env:
   BUILDKITE_PLUGIN_FS_CACHE_FOLDER: "/opt/homebrew/var/cache/buildkite"
 steps:
   - label: ':nodejs: Install dependencies'
-    command: mkdir node_modules; echo "$(date +%Y%m%d_%H%M%S)" > yarn.lock; npm ci
+    command: echo "$(date +%Y%m%d_%H%M%S)" > yarn.lock; npm ci
     plugins:
       - cache#v1.4.0:
           manifest: yarn.lock
