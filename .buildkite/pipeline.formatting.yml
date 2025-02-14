@@ -12,5 +12,5 @@ steps:
         - "/var/run/docker.sock:/var/run/docker.sock"
         environment:
         - "GO_BIN_PATH=/go/bin"
-    commands: "set -euo pipefail\ncd .src\n\necho --- Checking for formatting\nmake format\nif ! git diff --exit-code; then\n    echo \"Go files were not formatted correctly. Please commit the changes after running make format.\"\n    git diff  # Show the differences\n    exit 1\nelse\n    echo \"All Go files are formatted correctly.\"\nfi\n"
+    commands: "set -euo pipefail\nls -la; cd .src\n\necho --- Checking for formatting\nmake format\nif ! git diff --exit-code; then\n    echo \"Go files were not formatted correctly. Please commit the changes after running make format.\"\n    git diff  # Show the differences\n    exit 1\nelse\n    echo \"All Go files are formatted correctly.\"\nfi\n"
 
