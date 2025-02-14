@@ -13,5 +13,5 @@ steps:
         - ""
         environment:
         - "GO_BIN_PATH=/go/bin"
-    commands: "set -euo pipefail\ncd ../; ls -la; cd .src\n\necho --- Checking for formatting\nmake format\nif ! git diff --exit-code; then\n    echo \"Go files were not formatted correctly. Please commit the changes after running make format.\"\n    git diff  # Show the differences\n    exit 1\nelse\n    echo \"All Go files are formatted correctly.\"\nfi\n"
+    commands: "set -euo pipefail\ncd ../;echo $PWD; ls -la; cd .src\n\necho --- Checking for formatting\nmake format\nif ! git diff --exit-code; then\n    echo \"Go files were not formatted correctly. Please commit the changes after running make format.\"\n    git diff  # Show the differences\n    exit 1\nelse\n    echo \"All Go files are formatted correctly.\"\nfi\n"
 
