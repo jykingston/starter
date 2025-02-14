@@ -1,3 +1,5 @@
+env:
+  BUILDKITE_PLUGIN_FS_CACHE_FOLDER: "/opt/homebrew/var/cache/buildkite"
 steps:
   - label: ':nodejs: Install dependencies'
     command: npm ci
