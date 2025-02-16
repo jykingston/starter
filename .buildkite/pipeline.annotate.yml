@@ -1,5 +1,3 @@
 steps:
   - label: "Annotate Git Diff"
-    commands:
-      - echo '+++ :memo: Capturing Git Diff'
-      - git diff HEAD~1..HEAD | buildkite-agent annotate --context "git-diff" --style "default" 
+    command: echo "What is this?" > README.md; git diff HEAD~1..HEAD | buildkite-agent annotate --context "git-diff" --style "default" 
