@@ -2,4 +2,4 @@ steps:
   - label: "Annotate Git Diff"
     command: |
       diff -u HEAD~1..HEAD > tempdiff.txt
-      buildkite-agent annotate --style="default" --context="diff" "<pre>$(cat tempdiff.txt)</pre>"
+      buildkite-agent annotate --style "default" --context "diff" "<pre>$(cat tempdiff.txt)</pre>"
