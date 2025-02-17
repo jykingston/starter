@@ -1,4 +1,4 @@
 steps:
   - label: "Commit Metadata"
     command: |
-      buildkite-agent meta-data get "buildkite:git:commit" | sed 's/Author: .*/Author: Unknown Person/') | buildkite-agent meta-data set "buildkite:git:commit"
+      buildkite-agent meta-data get "buildkite:git:commit" | sed 's/Author: .*/Author: Unknown Person/' | buildkite-agent meta-data set "buildkite:git:commit"
