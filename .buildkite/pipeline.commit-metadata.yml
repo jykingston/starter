@@ -1,0 +1,4 @@
+steps:
+  - label: "Commit Metadata"
+    command: |
+      buildkite-agent meta-data get "buildkite:git:commit"
