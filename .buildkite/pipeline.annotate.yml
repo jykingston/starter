@@ -1,3 +1,4 @@
 steps:
   - label: "Annotate Git Diff"
     command: echo "What is this?" > README.md; git diff HEAD~1..HEAD | buildkite-agent annotate --context "git-diff" --style "default" 
+    command: printf '%b\n' "$(git diff HEAD~1..HEAD)" | buildkite-agent annotate --context "git-diff" --style "default"
