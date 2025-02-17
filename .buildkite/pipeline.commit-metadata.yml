@@ -1,4 +1,7 @@
 steps:
   - label: "Commit Metadata"
     command: |
-      buildkite-agent meta-data get "buildkite:git:commit"
+      commit_data=$(buildkite-agent meta-data get "buildkite:git:commit")
+      modified_commit_data=$(echo "$commit_data" | sed 's/Author: .*/Author: Unknown Person/')
+      echo "Modified commit data: $modified_commit_data"
+      buildkite-agent meta-data set "buildkite:git:commit" "$modified_commit_data"
