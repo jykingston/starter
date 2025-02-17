@@ -1,8 +1,6 @@
 steps:
-  - label: "Custom checkout"
-    command: echo "BUILDKITE_REPO >>>  $${BUILDKITE_REPO}"
+  - label: "Skip checkout"
+    command: 'echo "Skipping checkout"'
     plugins:
       - custom-checkout#v1.0.0:
           skip_checkout: true
-          repos:
-            - url: "https://github.com/lizrabuya/ruby-rspec.git"
