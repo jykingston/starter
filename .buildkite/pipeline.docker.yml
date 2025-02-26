@@ -17,6 +17,6 @@ steps:
           create: true
           driver: "docker-container"
         cache-to:
-        - "app:type=registry,mode=max,image-manifest=true,oci-mediatypes=true,ref=${AWS_ECR}/build-cache/jykingston/nutrien:cache"
+        - "app:type=registry,mode=max,image-manifest=true,oci-mediatypes=true,ref=097340723131.dkr.ecr.ap-southeast-2.amazonaws.com/build-cache/jykingston/nutrien:cache"
         cache-from:
-        - "app:type=registry,ref=${AWS_ECR}/build-cache/jykingston/nutrien:cache"
+        - "app:type=registry,ref=097340723131.dkr.ecr.ap-southeast-2.amazonaws.com/build-cache/jykingston/nutrien:cache"
