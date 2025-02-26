@@ -1,0 +1,5 @@
+iservices:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile

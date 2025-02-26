@@ -1,0 +1,19 @@
+env:
+  AWS_ECR: "097340723131.dkr.ecr.ap-southeast-2.amazonaws.com/"
+steps:
+  - env:
+      DOCKER_BUILDKIT: "1"
+      COMPOSE_DOCKER_CLI_BUILD: "1"
+    label: "webapp container"
+    retry:
+      automatic:
+      - limit: 2
+        exit_status: "*"
+    command: ""
+    plugins:
+    - github.com/buildkite-plugins/docker-compose-buildkite-plugin#v5.6.0:
+        build: "app"
+        config: "docker-compose.yml"
+        image-repository: "${AWS_ECR}/build-cache/jykingston/nutrien:latest"
+    timeout_in_minutes: 30
+
