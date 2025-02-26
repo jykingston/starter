@@ -1,14 +1,6 @@
 env:
   AWS_ECR: "097340723131.dkr.ecr.ap-southeast-2.amazonaws.com/"
 steps:
-  - label: "Install and Configure Docker ECR Helper"
-    command: |
-      sudo su;
-      curl -Lo /usr/local/bin/docker-credential-ecr-login https://github.com/awslabs/amazon-ecr-credential-helper/releases/latest/download/docker-credential-ecr-login
-      chmod +x /usr/local/bin/docker-credential-ecr-login
-      mkdir -p ~/.docker
-      echo '{"credsStore": "ecr-login","credHelpers":{"097340723131.dkr.ecr.ap-southeast-2.amazonaws.com":"ecr-login"}}' > ~/.docker/config.json
-  - wait: ~
   - label: ":docker: :package:"
     agents:
       queue: "default"
