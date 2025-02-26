@@ -8,6 +8,7 @@ steps:
       chmod +x /usr/local/bin/docker-credential-ecr-login
       mkdir -p ~/.docker
       echo '{"credsStore": "ecr-login","credHelpers":{"097340723131.dkr.ecr.ap-southeast-2.amazonaws.com":"ecr-login"}}' > ~/.docker/config.json
+  - wait: ~
   - label: ":docker: :package:"
     agents:
       queue: "default"
