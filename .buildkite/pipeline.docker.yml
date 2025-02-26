@@ -1,15 +1,17 @@
 env:
   AWS_ECR: "097340723131.dkr.ecr.ap-southeast-2.amazonaws.com/"
 steps:
-  - label: ":docker: :package:"
-    agents:
-      queue: "default"
+  - label: "Install and Configure Docker ECR Helper"
     command: |
       apk add --no-cache curl jq docker
       curl -Lo /usr/local/bin/docker-credential-ecr-login https://github.com/awslabs/amazon-ecr-credential-helper/releases/latest/download/docker-credential-ecr-login
       chmod +x /usr/local/bin/docker-credential-ecr-login
       mkdir -p ~/.docker
-      echo '{"credsStore": "ecr-login","credHelpers":{""097340723131.dkr.ecr.ap-southeast-2.amazonaws.com:"ecr-login"}}' > ~/.docker/config.json
+      echo '{"credsStore": "ecr-login","credHelpers":{"097340723131.dkr.ecr.ap-southeast-2.amazonaws.com":"ecr-login"}}' > ~/.docker/config.json
+  - label: ":docker: :package:"
+    agents:
+      queue: "default"
+    command: ""
     plugins:
     - github.com/buildkite-plugins/docker-compose-buildkite-plugin#v5.6.0:
         push:
