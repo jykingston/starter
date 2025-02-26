@@ -3,6 +3,7 @@ env:
 steps:
   - label: "Install and Configure Docker ECR Helper"
     command: |
+      sudo su;
       curl -Lo /usr/local/bin/docker-credential-ecr-login https://github.com/awslabs/amazon-ecr-credential-helper/releases/latest/download/docker-credential-ecr-login
       chmod +x /usr/local/bin/docker-credential-ecr-login
       mkdir -p ~/.docker
