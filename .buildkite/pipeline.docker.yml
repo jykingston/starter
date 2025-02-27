@@ -6,6 +6,8 @@ steps:
       queue: "default"
     command: ""
     plugins:
+    - ecr#v2.9.0:
+        login: true
     - github.com/buildkite-plugins/docker-compose-buildkite-plugin#v5.6.0:
         push:
         - "app:${AWS_ECR}/build-cache/jykingston/nurtien:latest"
