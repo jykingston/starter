@@ -2,8 +2,6 @@
 # This default command changes the pipeline of a running build by uploading a configuration file.
 # https://buildkite.com/docs/agent/v3/cli-pipeline
 # For more information on different step types, toggle open the step guides
-agents:
-  queue: jeremy-sandbox
 steps:
   - label: ":wave:"
     command: sleep 100 && exit 1
