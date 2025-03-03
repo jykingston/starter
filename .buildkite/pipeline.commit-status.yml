@@ -1,7 +1,7 @@
 # This default command changes the pipeline of a running build by uploading a configuration file.
 # https://buildkite.com/docs/agent/v3/cli-pipeline
 steps:
-  - command: echo hello world
+  - command: echo "hello world again"
   - wait: ~
   - trigger: ha-sandbox-deux
     async: false
