@@ -4,17 +4,17 @@ steps:
       #!/bin/bash
       set -euo pipefail
 
-      echo '--- :package: Setting up'
+      echo '+++ --- :package: Setting up'
       echo 'Running setup tasks...'
       sleep 2  # Simulating setup task
       echo '~~~ Setup complete.'
 
-      echo '--- :hammer: Building'
+      echo '+++ --- :hammer: Building'
       echo 'Starting build process...'
       sleep 2  # Simulating build process
-      echo 'Build complete.'
+      echo '~~~ Build complete.'
 
-      echo '--- :microscope: Testing'
+      echo '+++ --- :microscope: Testing'
       echo 'Executing tests...'
       sleep 2  # Simulating test execution
-      echo 'Tests complete.'
+      echo '~~~ Tests complete.'
