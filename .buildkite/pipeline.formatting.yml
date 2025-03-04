@@ -7,7 +7,7 @@ steps:
       echo '--- :package: Setting up'
       echo 'Running setup tasks...'
       sleep 2  # Simulating setup task
-      echo 'Setup complete.'
+      echo '~~~ Setup complete.'
 
       echo '--- :hammer: Building'
       echo 'Starting build process...'
