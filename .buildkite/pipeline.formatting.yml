@@ -1,17 +1,20 @@
 steps:
-  - key: "np-check-formatting"
-    label: "NP | Check go formatting"
-    commands: "ls -la; cd /app; ls -la"
-    plugins:
-      - docker#v5.9.0:
-          image: "golang:1.22.1"
-          shell:
-            - "/bin/bash"
-            - "-c"
-          network: "host"
-          environment:
-            - "GO_BIN_PATH=/go/bin"
-          propagate-uid-gid: true
-          workdir: "/app"
-          volumes:
-            - "/var/run/docker.sock:/var/run/docker.sock"
+  - label: "Build and Test"
+    command: |
+      #!/bin/bash
+      set -euo pipefail
+
+      echo '--- :package: Setting up'
+      echo 'Running setup tasks...'
+      sleep 2  # Simulating setup task
+      echo 'Setup complete.'
+
+      echo '--- :hammer: Building'
+      echo 'Starting build process...'
+      sleep 2  # Simulating build process
+      echo 'Build complete.'
+
+      echo '--- :microscope: Testing'
+      echo 'Executing tests...'
+      sleep 2  # Simulating test execution
+      echo 'Tests complete.'
