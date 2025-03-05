@@ -4,6 +4,11 @@ steps:
     agents:
       queue: 'default'
 
+  - label: "Job 1"
+    command: "sleep 300"
+    agents:
+      queue: 'default'
+ 
   - wait
 
   # Individual jobs to test scaling
