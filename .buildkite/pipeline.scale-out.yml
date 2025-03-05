@@ -1,0 +1,56 @@
+steps:
+  - label: "Setup Test Environment"
+    command: "echo 'Setting up...'"
+    agents:
+      queue: 'default'
+
+  - wait
+
+  # Individual jobs to test scaling
+  - label: "Job 1"
+    command: "sleep 300"
+    agents:
+      queue: 'default'
+  - label: "Job 2"
+    command: "sleep 300"
+    agents:
+      queue: 'default'
+  - label: "Job 3"
+    command: "sleep 300"
+    agents:
+      queue: 'default'
+  - label: "Job 4"
+    command: "sleep 300"
+    agents:
+      queue: 'default'
+  - label: "Job 5"
+    command: "sleep 300"
+    agents:
+      queue: 'default'
+  - label: "Job 6"
+    command: "sleep 300"
+    agents:
+      queue: 'default'
+  - label: "Job 7"
+    command: "sleep 300"
+    agents:
+      queue: 'default'
+  - label: "Job 8"
+    command: "sleep 300"
+    agents:
+      queue: 'default'
+  - label: "Job 9"
+    command: "sleep 300"
+    agents:
+      queue: 'default'
+  - label: "Job 10"
+    command: "sleep 300"
+    agents:
+      queue: 'default'
+
+  - wait
+
+  - label: "Teardown Test Environment"
+    command: "echo 'Cleaning up...'"
+    agents:
+      queue: 'default'
