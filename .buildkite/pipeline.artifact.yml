@@ -9,16 +9,16 @@ steps:
         echo "This run will succeed." >> build.log
       fi
     artifact_paths: "build.log"
-    continue_on_failure: true
     retry:
       automatic:
         - exit_status: 1 # Retry on failure with exit status 1
           limit: 4       # Retry up to 3 times
 
   - wait: ~
+    continue_on_failure: true
+
 
   - label: "Download Artifact"
-    continue_on_failure: true
     command: |
       buildkite-agent artifact download "build.log" .
       cat build.log
