@@ -14,11 +14,9 @@ steps:
         - exit_status: 1 # Retry on failure with exit status 1
           limit: 3       # Retry up to 3 times
 
-  - wait
+  - wait: ~
 
   - label: "Download Artifact"
     command: |
       buildkite-agent artifact download "build.log" .
       cat build.log
-    depends_on: 
-      - "*"
