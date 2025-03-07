@@ -1,8 +1,8 @@
 steps:
   - label: "Generate Logs and Fail Twice"
     command: |
-      echo "Build attempt number \$BUILDKITE_BUILD_NUMBER" > build.log
-      if [ "\$BUILDKITE_BUILD_NUMBER" == "1" ] || [ "\$BUILDKITE_BUILD_NUMBER" == "2" ]; then
+      echo "Build attempt number \$BUILDKITE_RETRY_COUNT" > build.log
+      if [ "\$BUILDKITE_RETRY_COUNT" != "3" ]; then
         echo "This run will fail intentionally." >> build.log
         exit 1
       else
@@ -12,7 +12,7 @@ steps:
     retry:
       automatic:
         - exit_status: 1 # Retry on failure with exit status 1
-          limit: 3       # Retry up to 3 times
+          limit: 4       # Retry up to 3 times
 
   - wait: ~
 
