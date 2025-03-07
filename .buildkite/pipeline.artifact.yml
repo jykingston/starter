@@ -1,0 +1,11 @@
+steps:
+  - label: "Generate Logs and Fail Twice"
+    command: |
+      echo "Build attempt number \$BUILDKITE_BUILD_NUMBER" > build.log
+      if [ "\$BUILDKITE_BUILD_NUMBER" == "1" ] || [ "\$BUILDKITE_BUILD_NUMBER" == "2" ]; then
+        echo "This run will fail intentionally." >> build.log
+        exit 1
+      else
+        echo "This run will succeed." >> build.log
+      fi
+    artifact_paths: "build.log"
