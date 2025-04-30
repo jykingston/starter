@@ -6,7 +6,7 @@ steps:
     plugins:
       - cache#v1.4.0:
           manifest: yarn.lock
-          path: "tmp/yarn/cache"
+          path: "node_modules"
           save:
             - pipeline
           compression: "tgz"
