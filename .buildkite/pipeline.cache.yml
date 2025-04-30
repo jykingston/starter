@@ -8,7 +8,7 @@ steps:
           manifest: yarn.lock
           path: "node_modules"
           save: pipeline
-#          compression: "tgz"
+          compression: "tgz"
           backend: s3
   - label: ':nodejs: Run tests'
     command: echo "Running tests" && sleep 10
@@ -17,5 +17,5 @@ steps:
           manifest: yarn.lock
           path: "node_modules"
           restore: pipeline
-#          compression: "tgz"
+          compression: "tgz"
           backend: s3
