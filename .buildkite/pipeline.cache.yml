@@ -10,12 +10,12 @@ steps:
  #         save: "pipeline"
  #         compression: "tgz"
  #         backend: "s3"
-      - github.com/buildkite-plugins/cache-buildkite-plugin#v1.5.2:
-          path: "node_modules"
-          save: "pipeline"
-          backend: "s3"
-          manifest: "yarn.lock"
-          compression: "tgz"
+    - github.com/buildkite-plugins/cache-buildkite-plugin#v1.5.2:
+        path: "node_modules"
+        save: "pipeline"
+        backend: "s3"
+        manifest: "yarn.lock"
+        compression: "tgz"
   - label: ':nodejs: Run tests'
     command: echo "Running tests" && sleep 10
     plugins:
@@ -25,9 +25,9 @@ steps:
   #        restore: "pipeline"
   #        compression: "tgz"
   #        backend: "s3"
-      - github.com/buildkite-plugins/cache-buildkite-plugin#v1.5.2:
-          path: "node_modules"
-          backend: "s3"
-          restore: "pipeline"
-          manifest: "yarn.lock"
-          compression: "tgz"
+    - github.com/buildkite-plugins/cache-buildkite-plugin#v1.5.2:
+        path: "node_modules"
+        backend: "s3"
+        restore: "pipeline"
+        manifest: "yarn.lock"
+        compression: "tgz"
