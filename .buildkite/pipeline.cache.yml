@@ -5,17 +5,18 @@ steps:
     command: mkdir node_modules; echo "$(date +%Y%m%d_%H%M%S)" > yarn.lock; npm ci
     plugins:
       - cache#v1.5.2:
-          manifest: yarn.lock
+          manifest: "yarn.lock"
           path: "node_modules"
-          save: pipeline
+          save: "pipeline"
           compression: "tgz"
-          backend: s3
+          backend: "s3"
+
   - label: ':nodejs: Run tests'
     command: echo "Running tests" && sleep 10
     plugins:
       - cache#v1.5.2:
-          manifest: yarn.lock
+          manifest: "yarn.lock"
           path: "node_modules"
-          restore: pipeline
+          restore: "pipeline"
           compression: "tgz"
-          backend: s3
+          backend: "s3"
