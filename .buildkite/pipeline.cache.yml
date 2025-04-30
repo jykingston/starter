@@ -2,7 +2,7 @@ env:
   BUILDKITE_PLUGIN_S3_CACHE_BUCKET: "jykingston-buildkite-test-storage"
 steps:
   - label: ':nodejs: Install dependencies'
-    command: mkdir node_modules; echo "$(date +%Y%m%d_%H%M%S)" > yarn.lock; npm ci
+    command: mkdir node_modules; echo "$(date +%Y%m%d_%H%M%S)" > yarn.lock; npm ci; sleep 30;
     plugins:
  #     - cache#v1.5.2:
  #         manifest: "yarn.lock"
