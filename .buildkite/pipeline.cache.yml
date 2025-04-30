@@ -11,6 +11,7 @@ steps:
             - pipeline
   - label: ':nodejs: Run tests'
     command: echo "Running tests" && sleep 10
+    plugins:
       - cache#v1.4.0:
           manifest: yarn.lock
           path: "node_modules"
