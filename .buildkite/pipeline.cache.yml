@@ -1,5 +1,5 @@
 env:
-  BUILDKITE_PLUGIN_FS_CACHE_FOLDER: "/opt/homebrew/var/cache/buildkite"
+  BUILDKITE_PLUGIN_S3_CACHE_BUCKET: "jykingston-buildkite-test-storage"
 steps:
   - label: ':nodejs: Install dependencies'
     command: mkdir node_modules; echo "$(date +%Y%m%d_%H%M%S)" > yarn.lock; npm ci
@@ -9,6 +9,8 @@ steps:
           path: "tmp/yarn/cache"
           save:
             - pipeline
+          compression: "tgz"
+          backend: s3
   - label: ':nodejs: Run tests'
     command: echo "Running tests" && sleep 10
     plugins:
@@ -16,3 +18,5 @@ steps:
           manifest: yarn.lock
           path: "node_modules"
           restore: pipeline
+          compression: "tgz"
+          backend: s3
