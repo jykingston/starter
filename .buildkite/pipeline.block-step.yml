@@ -1,4 +1,13 @@
 steps:
-  - block: "unblock me"
-  - wait:
-    if: build.env("BUILDKITE_UNBLOCKER") == "Jy Kingston"
+  - block: APPROVE BUILD?
+    key: "block-step"
+  - command: |
+      cat <<- YAML | buildkite-agent pipeline upload 
+        steps:
+          - label: Checking permission
+            command: "if [[ \"$$BUILDKITE_UNBLOCKER_TEAMS\" == *\"admin\"* ]];
+              then\n  exit 0\nelse \n  exit -1\nYAML\nfi\n"
+            depends_on: "block-step"
+      YAML
+      
+  - command: "echo next step"
