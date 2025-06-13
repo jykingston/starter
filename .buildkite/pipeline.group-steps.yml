@@ -1,0 +1,4 @@
+steps:
+  - group: "Setup"
+    steps:
+      - command: "echo 'Setting up environment...'"
